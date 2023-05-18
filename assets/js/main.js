@@ -8,7 +8,7 @@ let offset = 0;
 
 //molde do html
 function convertPokemonToLi(pokemon) {
-    return ` <li class="pokemon ${pokemon.type}">
+    return ` <li id="${pokemon.number}" class="pokemon ${pokemon.type}">
         <span class="number">#${pokemon.number}</span> 
         <span class="name">${pokemon.name}</span>
     
@@ -23,6 +23,15 @@ function convertPokemonToLi(pokemon) {
     </li>`
 }
 
+function lista(pokemons) {
+    const pokemonElements = document.getElementsByClassName('pokemon');
+
+for (let index = 0; index < pokemonElements.length; index++) {
+    const element = pokemonElements[index];
+    
+    element.addEventListener('click', () =>  popup.style.display = 'block')
+}
+}
 /*
 pega o resultado da API já em Json, percorre o array retornando cada elemento.
 Converte no elemento HTML atraves da funçao 'convertPokemonToLi' e retorna em forma de string atraves do Join
@@ -32,6 +41,7 @@ function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
        const newHtml = pokemons.map(convertPokemonToLi).join('')
        pokemonList.innerHTML += newHtml
+       lista(pokemons)
     })
     .catch((error) => console.error(error));
 } 

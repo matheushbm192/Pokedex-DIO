@@ -18,27 +18,92 @@
     <!-- css -->
     <link rel="stylesheet" href="./assets/css/global.css">
     <link rel="stylesheet" href="./assets/css/pokedex.css">
+    <link rel="stylesheet" href="./assets/css/details.css">
   
 </head>
 <body>
-
+    <!-- Pokemons -->
     <section class="content">
+        <!-- detalhes -->
+        <div id="popup" class="popup-wrapper">
+            <div class="popup">
 
+                <div  class="popup-close">x</div>
+                <div class="popup-content">
+                    <div class="header-popup">  
+                        <span class="name">Bulbasauro</span>
+                        <span class="number">#000</span>
+                    </div>
+                    <div class="types-popup">
+                        <ol class="types">
+                            <li class="type">grass</li>
+                            <li class="type">fire</li>
+                        </ol>
+                    </div>
+                    
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" alt="bulbasauro">
+                </div>
+                    <div class="white-part">
+                        <span>Base Stats</span>
+                        <ol class="status">
+                            <li>
+                                <span>HP</span> 
+                                 <span>00</span>
+                            </li>
+                            <li>
+                                <span>Attack</span> 
+                                <span>00</span> 
+                            </li>
+                            <li>
+                                <span>Defense</span> 
+                                <span>00</span> 
+                            </li>
+                            <li>
+                                <span>Special-attack</span> 
+                                <span>00</span> 
+                            </li>
+                            <li>
+                                <span>Special-Defense</span> 
+                                <span>00</span> 
+                            </li>
+                            <li>
+                                <span>Speed</span> 
+                                <span>00</span>
+                            </li>
+                            <li>
+                                <span>Total</span> 
+                                <span>00</span> 
+                            </li>
+                        </ol>
+                        <div class="fluxo">
+                            <button id="loadPrevious" class="">Antes</button>
+                            <button id="loadNext">Depois</button>
+                        </div>
+                       
+                    </div>
+                   
+                
+            </div>
+        </div>
+        <!-- pokemon -->
         <h1>Pokedex</h1>
+
 
         <ol id="pokemonList" class="pokemons">
           
-           
+           <!-- Li dos pokemons -->
+
         </ol>
         <div class="pagination">
             <button id="loadMoreButton" type="button"> Load More </button>
         </div>
 
     </section>
-
+    
     <!-- JavaScript -->
     <script src="./assets/js/pokemon-model.js"></script>
     <script src="./assets/js/poke-api.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/details.js"></script>
 </body>
 </html>
