@@ -24,7 +24,8 @@ function convertPokemonToLi(pokemon) {
     </li>`
 }
 
-function gerarDetalhesPokemons (id, pokemons) { //achar usando some() pelo nome do pokemon
+function gerarDetalhesPokemons (pokemons) { //achar usando some() pelo nome do pokemon
+    console.log(pokemons)
     return`
     <div class="popup-close">x</div>
     <div class="popup-content">
@@ -98,16 +99,6 @@ function loadPokemonItens(offset, limit) {
     .catch((error) => console.error(error));
 } 
 
-//pega os li e atribuem a função de clique neles para exibir o popup
-function lista(pokemons) {
-    const pokemonElements = document.getElementsByClassName('pokemon');
-
-    for (let i = 0; i < pokemonElements.length; i++) {
-        const element = pokemonElements[i];
-    
-        element.addEventListener('click', () =>  popup.style.display = 'block')
-        console.log(element)
-}}
 
 //Requisita mais pokemon
 loadMoreButton.addEventListener('click', () => {
@@ -159,12 +150,15 @@ function popups(pokemons) {
               id = event.target.parentElement.id
               console.log(id)
           }
+        function separarPokemon (id,pokemons) {
+            return pokemons[id-1]
+        }
       
-      
-         const newPopup =  gerarDetalhesPokemons(id,pokemons)
+         const newPopup =  gerarDetalhesPokemons(separarPokemon(id, pokemons))
          pokemonPopup.innerHTML = newPopup;
          popup.style.display = 'block'
         
         }
       });
 }
+// mexer no convertApiToDetail e deixar dinamico
