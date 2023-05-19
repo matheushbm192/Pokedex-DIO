@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Pokedex</title>
 
     <!-- Normalize -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Fonts Roboto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&family=Roboto:wght@100;300;500;700&family=Work+Sans:wght@500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&family=Roboto:wght@100;300;500;700&family=Work+Sans:wght@500;700&display=swap"
+        rel="stylesheet">
 
     <!-- css -->
     <link rel="stylesheet" href="./assets/css/global.css">
     <link rel="stylesheet" href="./assets/css/pokedex.css">
     <link rel="stylesheet" href="./assets/css/details.css">
-  
+
 </head>
+
 <body>
     <!-- Pokemons -->
     <section class="content">
         <!-- detalhes -->
-        <div id="popup" class="popup-wrapper">
-            <div class="popup">
+        <div id="popup-wrapper" class="popup-wrapper">
+            <div id="popup" class="popup">
 
-                <div  class="popup-close">x</div>
+                <div class="popup-close">x</div>
                 <div class="popup-content">
-                    <div class="header-popup">  
+                    <div class="header-popup">
                         <span class="name">Bulbasauro</span>
                         <span class="number">#000</span>
                     </div>
@@ -40,49 +46,50 @@
                             <li class="type">fire</li>
                         </ol>
                     </div>
-                    
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" alt="bulbasauro">
+
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
+                        alt="bulbasauro">
                 </div>
-                    <div class="white-part">
-                        <span>Base Stats</span>
-                        <ol class="status">
-                            <li>
-                                <span>HP</span> 
-                                 <span>00</span>
-                            </li>
-                            <li>
-                                <span>Attack</span> 
-                                <span>00</span> 
-                            </li>
-                            <li>
-                                <span>Defense</span> 
-                                <span>00</span> 
-                            </li>
-                            <li>
-                                <span>Special-attack</span> 
-                                <span>00</span> 
-                            </li>
-                            <li>
-                                <span>Special-Defense</span> 
-                                <span>00</span> 
-                            </li>
-                            <li>
-                                <span>Speed</span> 
-                                <span>00</span>
-                            </li>
-                            <li>
-                                <span>Total</span> 
-                                <span>00</span> 
-                            </li>
-                        </ol>
-                        <div class="fluxo">
-                            <button id="loadPrevious" class="">Antes</button>
-                            <button id="loadNext">Depois</button>
-                        </div>
-                       
+                <div class="white-part">
+
+                    <span>Base Stats</span>
+                    <ol class="status">
+                        <li>
+                            <span>HP</span>
+                            <span>00</span>
+                        </li>
+                        <li>
+                            <span>Attack</span>
+                            <span>00</span>
+                        </li>
+                        <li>
+                            <span>Defense</span>
+                            <span>00</span>
+                        </li>
+                        <li>
+                            <span>Special-attack</span>
+                            <span>00</span>
+                        </li>
+                        <li>
+                            <span>Special-Defense</span>
+                            <span>00</span>
+                        </li>
+                        <li>
+                            <span>Speed</span>
+                            <span>00</span>
+                        </li>
+                        <li>
+                            <span>Total</span>
+                            <span>00</span>
+                        </li>
+                    </ol>
+                    <div class="fluxo">
+                        <button id="loadPrevious" class="">Antes</button>
+                        <button id="loadNext">Depois</button>
                     </div>
-                   
-                
+                </div>
+
+
             </div>
         </div>
         <!-- pokemon -->
@@ -90,8 +97,8 @@
 
 
         <ol id="pokemonList" class="pokemons">
-          
-           <!-- Li dos pokemons -->
+
+            <!-- Li dos pokemons -->
 
         </ol>
         <div class="pagination">
@@ -99,11 +106,12 @@
         </div>
 
     </section>
-    
+
     <!-- JavaScript -->
     <script src="./assets/js/pokemon-model.js"></script>
     <script src="./assets/js/poke-api.js"></script>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/details.js"></script>
 </body>
+
 </html>

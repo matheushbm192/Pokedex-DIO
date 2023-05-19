@@ -1,29 +1,4 @@
-const popup = document.getElementById("popup");
-// async function lista() {
- 
-// for (let i = 0; i < pokemonElements.length; i++) {
-//     const pokemonElement = pokemonElements[i];
-//     const pokemonId = pokemonElement.id;
-// console.log(pokemonId)
-// console.log(pokemonElement)
-//     pokemonElement.addEventListener('click', () => {
-        
-//     })
-
-// }
-// }
-
-// lista()
-
-// console.log(pokemonElements)
-// const pokemonElementsArray = Array.from(pokemonElements);
-// pokemonElementsArray.map((element) => {
-//     console.log(element)
-// });
-
-//aparece a popup
-// li.addEventListener('click', () => popup.style.display = 'block')
-// addEventListener("click", () => popup.style.display = 'block');
+const popup = document.getElementById("popup-wrapper");
 
 //fecha a popup quando clicada
 popup.addEventListener('click', (event) => {
