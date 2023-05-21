@@ -3,6 +3,8 @@ const pokemonList = document.getElementById('pokemonList');
 const loadMoreButton = document.getElementById('loadMoreButton');
 const pokemonPopup = document.getElementById('popup')
 
+const allPokemons = []
+
 const maxRecords = 300;
 const limit = 10;
 let offset = 0;
@@ -24,9 +26,9 @@ function convertPokemonToLi(pokemon) {
     </li>`
 }
 
-function gerarDetalhesPokemons (pokemons) { //achar usando some() pelo nome do pokemon
+function gerarDetalhesPokemons(pokemons) { //achar usando some() pelo nome do pokemon
     console.log(pokemons)
-    return`
+    return `
     <div class="popup-close">x</div>
     <div class="popup-content">
         <div class="header-popup">
@@ -88,18 +90,19 @@ function gerarDetalhesPokemons (pokemons) { //achar usando some() pelo nome do p
 //atribui a lista de pokemons ao HTML
 function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
-       const newHtml = pokemons.map(convertPokemonToLi).join('')
-       pokemonList.innerHTML += newHtml
-       //lista(pokemons)
-    //    const newPopup = pokemons.map(gerarDetalhesPokemons).join('')
-    //    console.log(newPopup)
-    //    pokemonPopup.innerHTML += newPopup
-        popups(pokemons)
+        const newHtml = pokemons.map(convertPokemonToLi).join('')
+        pokemonList.innerHTML += newHtml
+
+        pokemons.forEach(pokemon => {
+            allPokemons.push(pokemon)
+            //metodo q exclui oq ja existe
+        });
     })
-    .catch((error) => console.error(error));
-} 
+        // .then(popups(allPokemons))
+        .catch((error) => console.error(error));
 
-
+}
+ 
 //Requisita mais pokemon
 loadMoreButton.addEventListener('click', () => {
     offset += limit;
@@ -109,56 +112,63 @@ loadMoreButton.addEventListener('click', () => {
         const newLimit = maxRecords - offset;
         loadPokemonItens(offset, newLimit);
         loadMoreButton.parentElement.removeChild(loadMoreButton)
-    }else {
+    } else {
         loadPokemonItens(offset, limit);
     }
-    
+
 })
 
-function executar(offset, limit) {
-  return  loadPokemonItens(offset, limit)
-    
+loadPokemonItens(offset, limit)
 
-}
+
+console.log(allPokemons)
+
 //primeira requisição
-executar(offset, limit);
+
 
 
 
 // Obtém o elemento pai
 //var lista = document.getElementById('lista');
-function popups(pokemons) {
-    pokemonList.addEventListener('click', function(event) {
+
+    pokemonList.addEventListener('click', function (event) {
         // Verifica se o elemento clicado é um <li>
-        if (event.target.tagName === 'LI' ||  event.target.parentElement.tagName === 'LI' || event.target.parentElement.parentElement.tagName === 'LI' || event.target.parentElement.parentElement.parentElement.tagName === 'LI') {
-          // Obtém o ID do elemento clicado
-          let id = "";
-          elementHtml = event.target.tagName;
-      
-          if (elementHtml === 'LI') {
-              id = event.target.id === undefined ?
-                  event.target.parentElement.parentElement.parentElement.id : event.target.id;
-              console.log(id)
-      
-          } else if (elementHtml === 'SPAN') {
-              id = event.target.parentElement.id
-              console.log(id)
-          } else if (elementHtml === "IMG") {
-              id = event.target.parentElement.parentElement.id
-              console.log(id)
-          } else if (elementHtml === "DIV") {
-              id = event.target.parentElement.id
-              console.log(id)
-          }
-        function separarPokemon (id,pokemons) {
-            return pokemons[id-1]
+        let id = "";
+        if (event.target.tagName === 'LI' || event.target.parentElement.tagName === 'LI' || event.target.parentElement.parentElement.tagName === 'LI' || event.target.parentElement.parentElement.parentElement.tagName === 'LI') {
+            // Obtém o ID do elemento clicado
+            
+            elementHtml = event.target.tagName; //pega o nome
+            idHtml = event.target.id;
+            if (elementHtml === 'LI') {
+                if (idHtml === undefined) {
+                    id = event.target.parentElement.parentElement.parentElement.id;
+                } else {
+                    id = event.target.id;
+                }  
+                console.log(id)
+            }else if (elementHtml === "IMG") {
+                id = event.target.parentElement.parentElement.id
+                console.log(id)
+            } else if (elementHtml === 'SPAN') {
+                id = event.target.parentElement.id
+                console.log(id)
+            }  else if (elementHtml === "DIV") {
+                id = event.target.parentElement.id
+                console.log(id)
+            } else {
+                console.log(erro)
+            }
         }
-      
-         const newPopup =  gerarDetalhesPokemons(separarPokemon(id, pokemons))
-         pokemonPopup.innerHTML = newPopup;
-         popup.style.display = 'block'
-        
+        function separarPokemon(id, pokemons) {
+
+            return pokemons[id - 1]
         }
-      });
-}
+
+        const newPopup = gerarDetalhesPokemons(separarPokemon(id, allPokemons))
+        pokemonPopup.innerHTML = newPopup;
+        popup.style.display = 'block'
+
+
+    });
+
 // mexer no convertApiToDetail e deixar dinamico
