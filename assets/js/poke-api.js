@@ -39,4 +39,4 @@ pokeApi.getPokemons = ( offset = 0, limit = 5) => {
         .catch((error) => console.error(error))
 }
 
-// pokeApi.getPokemonsForId = () =>
+

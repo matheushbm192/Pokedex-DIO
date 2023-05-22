@@ -1,8 +1,9 @@
 //Pega o elemento pai, que vai receber a lista, atraves do ID
 const pokemonList = document.getElementById('pokemonList');
 const loadMoreButton = document.getElementById('loadMoreButton');
-const pokemonPopup = document.getElementById('popup-wrapper')
-
+const pokemonPopup = document.getElementById('popup-wrapper');
+const loadPrevious = document.getElementById('loadPrevious')
+let id = "";
 const allPokemons = []
 
 const maxRecords = 300;
@@ -77,10 +78,7 @@ function gerarDetalhesPokemons(pokemon) { //achar usando some() pelo nome do pok
                     <span>${pokemon.total}</span>
                 </li>
             </ol>
-            <div class="fluxo">
-                <button id="loadPrevious" class="">Antes</button>
-                <button id="loadNext">Depois</button>
-            </div>
+           
         </div>
     </div>
     `
@@ -119,7 +117,7 @@ loadMoreButton.addEventListener('click', () => {
 loadPokemonItens(offset, limit)
 
 
-console.log(allPokemons)
+
 
 //primeira requisição
 
@@ -131,7 +129,7 @@ console.log(allPokemons)
 
 pokemonList.addEventListener('click', function (event) {
     // Verifica se o elemento clicado é um <li>
-    let id = "";
+    
     if (event.target.tagName === 'LI' || event.target.parentElement.tagName === 'LI' || event.target.parentElement.parentElement.tagName === 'LI' || event.target.parentElement.parentElement.parentElement.tagName === 'LI') {
         // Obtém o ID do elemento clicado
 
@@ -146,27 +144,38 @@ pokemonList.addEventListener('click', function (event) {
             console.log(id)
         } else if (elementHtml === "IMG") {
             id = event.target.parentElement.parentElement.id
-            console.log(id)
+            
         } else if (elementHtml === 'SPAN') {
             id = event.target.parentElement.id
-            console.log(id)
+            
         } else if (elementHtml === "DIV") {
             id = event.target.parentElement.id
-            console.log(id)
+            
         } else {
             console.log(erro)
         }
     }
-    function separarPokemon(id, pokemons) {
+   
+    gerarPopup(id)
 
-        return pokemons[id - 1]
-    }
-
-    const newPopup = gerarDetalhesPokemons(separarPokemon(id, allPokemons))
-    pokemonPopup.innerHTML = newPopup;
-    pokemonPopup.style.display = 'block'
+   
 
 
 });
 
+//  loadPrevious.addEventListener('click', function () {
+//     id = id - 1
+//     console.log("eii")
+//     gerarPopup( id)
+// })
+
+function gerarPopup(id) {
+    const newPopup = gerarDetalhesPokemons(separarPokemon(id, allPokemons))
+    pokemonPopup.innerHTML = newPopup;
+    pokemonPopup.style.display = 'block'
+}
+ function separarPokemon(id, pokemons) {
+
+        return pokemons[id - 1]
+    }
 // mexer no convertApiToDetail e deixar dinamico

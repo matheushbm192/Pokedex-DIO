@@ -16,7 +16,7 @@
     text-align: center;
     width: 100%;
     max-width: 330px;
-    margin: 5% auto;
+    margin: 3% auto;
     padding: none;
     /* background-color: #1e36b2; */
     position: relative;
@@ -25,10 +25,13 @@
 
 
 .popup-close {
+    border-radius: 0.3rem;
+    padding: 0 0.3rem;
     position: absolute;
-    top: 5px;
+    top: 10px;
     left: 10px;
     cursor: pointer;
+    background: #ffffff30;
 }
 
 .popup-content {

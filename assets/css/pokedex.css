@@ -126,6 +126,7 @@
     padding: 1rem;
 }
 .pagination button {
+    cursor: pointer;
     padding: 0.25rem 0.5rem;
     background-color: #6c79db;
     border: none;
