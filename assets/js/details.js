@@ -1,7 +1,7 @@
-const popup = document.getElementById("popup-wrapper");
+// const popup = document.getElementById("popup-wrapper");
 
 //fecha a popup quando clicada
-popup.addEventListener('click', (event) => {
+pokemonPopup.addEventListener('click', (event) => {
 //ponto chave para nao fechar com qualquer clique, so nos lugares especificos atraves de classes
     const classNameOfClickedElement = event.target.classList[0]; 
     const classNames = ['popup-wrapper','popup-close'];
@@ -11,7 +11,7 @@ popup.addEventListener('click', (event) => {
      // some() perrcorre cada elemento do array e compara com o elemento clicado : retorna bolean
      
     if (shouldClosePopup) {
-        popup.style.display = 'none' //alterar 
+        pokemonPopup.style.display = 'none' //alterar 
     }
     
    

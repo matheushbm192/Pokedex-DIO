@@ -18,7 +18,7 @@
     max-width: 330px;
     margin: 5% auto;
     padding: none;
-    background-color: #1e36b2;
+    /* background-color: #1e36b2; */
     position: relative;
     border-radius: 1.5rem;
 }
@@ -47,6 +47,7 @@
     text-align: right;
     font-size: 1.5rem;
     color: #fff;
+    text-transform: capitalize;
 }
 
 .header-popup .number {
@@ -70,20 +71,20 @@
 }
 
 .types-popup .types .type {
-    background: green;
     width: 3.5rem;
     margin: 0 0.5rem 0 0;
-    padding: 0.5rem;
+    padding: 0.5rem 0rem;
     border-radius: 1rem;
     font-size: 1rem;
     color: #fff;
+    filter: brightness(1.1);
 }
 
 .popup-content img {
     position: relative;
     top: 18px;
     max-width: 100%;
-    height: 150px;
+    height: 230px;
     align-self: center;
 
 }
