@@ -6,7 +6,7 @@ const loadPrevious = document.getElementById('loadPrevious')
 let id = "";
 const allPokemons = []
 
-const maxRecords = 300;
+const maxRecords = 1000;
 const limit = 10;
 let offset = 0;
 
